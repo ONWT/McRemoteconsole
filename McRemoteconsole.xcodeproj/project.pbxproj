@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		551139831394CACD00BE376B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 551139821394CACD00BE376B /* main.cpp */; };
 		551139851394CACD00BE376B /* McRemoteconsole.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 551139841394CACD00BE376B /* McRemoteconsole.1 */; };
+		554CDB911395642E00DA8E0C /* libboost_filesystem-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CDB8F1395642E00DA8E0C /* libboost_filesystem-mt.dylib */; };
+		554CDB9913957F3B00DA8E0C /* libboost_system-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CDB9813957F3B00DA8E0C /* libboost_system-mt.dylib */; };
+		554CDBA31397832000DA8E0C /* inputhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 554CDBA21397832000DA8E0C /* inputhandler.cpp */; };
+		554CDBA6139783ED00DA8E0C /* libboost_thread-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CDBA5139783ED00DA8E0C /* libboost_thread-mt.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +32,11 @@
 		5511397E1394CACD00BE376B /* McRemoteconsole */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = McRemoteconsole; sourceTree = BUILT_PRODUCTS_DIR; };
 		551139821394CACD00BE376B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		551139841394CACD00BE376B /* McRemoteconsole.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = McRemoteconsole.1; sourceTree = "<group>"; };
+		554CDB8F1395642E00DA8E0C /* libboost_filesystem-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-mt.dylib"; path = "usr/local/lib/libboost_filesystem-mt.dylib"; sourceTree = SDKROOT; };
+		554CDB9813957F3B00DA8E0C /* libboost_system-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-mt.dylib"; path = "usr/local/lib/libboost_system-mt.dylib"; sourceTree = SDKROOT; };
+		554CDBA21397832000DA8E0C /* inputhandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inputhandler.cpp; sourceTree = "<group>"; };
+		554CDBA41397836A00DA8E0C /* inputhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputhandler.h; sourceTree = "<group>"; };
+		554CDBA5139783ED00DA8E0C /* libboost_thread-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_thread-mt.dylib"; path = "usr/local/lib/libboost_thread-mt.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				554CDBA6139783ED00DA8E0C /* libboost_thread-mt.dylib in Frameworks */,
+				554CDB9913957F3B00DA8E0C /* libboost_system-mt.dylib in Frameworks */,
+				554CDB911395642E00DA8E0C /* libboost_filesystem-mt.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +56,9 @@
 		551139731394CACC00BE376B = {
 			isa = PBXGroup;
 			children = (
+				554CDBA5139783ED00DA8E0C /* libboost_thread-mt.dylib */,
+				554CDB9813957F3B00DA8E0C /* libboost_system-mt.dylib */,
+				554CDB8F1395642E00DA8E0C /* libboost_filesystem-mt.dylib */,
 				551139811394CACD00BE376B /* McRemoteconsole */,
 				5511397F1394CACD00BE376B /* Products */,
 			);
@@ -62,6 +77,8 @@
 			children = (
 				551139821394CACD00BE376B /* main.cpp */,
 				551139841394CACD00BE376B /* McRemoteconsole.1 */,
+				554CDBA21397832000DA8E0C /* inputhandler.cpp */,
+				554CDBA41397836A00DA8E0C /* inputhandler.h */,
 			);
 			path = McRemoteconsole;
 			sourceTree = "<group>";
@@ -114,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				551139831394CACD00BE376B /* main.cpp in Sources */,
+				554CDBA31397832000DA8E0C /* inputhandler.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +158,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/boost/1.46.1/include/;
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/boost/1.46.1/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -160,6 +180,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/boost/1.46.1/include/;
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/boost/1.46.1/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
@@ -168,6 +190,10 @@
 		551139891394CACD00BE376B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/boost/1.46.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -175,6 +201,10 @@
 		5511398A1394CACD00BE376B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/boost/1.46.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -198,6 +228,7 @@
 				5511398A1394CACD00BE376B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
