@@ -19,7 +19,9 @@
 #include <boost/array.hpp> 
 #include <boost/bind.hpp> 
 #include <string> 
-#include <vector> 
+#include <vector>
+
+#include "inputhandler.h"
 
 namespace bp = ::boost::process; 
 namespace ba = ::boost::asio; 
@@ -75,11 +77,13 @@ void end_read(const boost::system::error_code &ec, std::size_t bytes_transferred
 int main() 
 { 
  bp::child c = start_child(); 
+ inputhandler::inputhandler *input = new inputhandler();
  
  bp::pistream &is = c.get_stderr();
- bp::postream &out = c.get_stdin();
  in.assign(is.handle().release()); 
  begin_read();
+ input->start(&c.get_stdin());
  io_service.run();
  c.wait(); 
+ input->join();
 } 
