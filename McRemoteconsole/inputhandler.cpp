@@ -24,6 +24,11 @@ void inputhandler::join()
  inputhandler::m_Thread.join();
 }
 
+void inputhandler::interupt()
+{
+ inputhandler::m_Thread.interrupt();
+}
+
 void inputhandler::processQueue(boost::process::postream *sout)
 {
  std::string Line;
@@ -44,4 +49,4 @@ void inputhandler::processQueue(boost::process::postream *sout)
    *sout<<Line << std::endl;
   }
  }
- }
+}

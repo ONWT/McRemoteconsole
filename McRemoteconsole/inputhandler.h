@@ -20,6 +20,7 @@ public:
  
  void start(boost::process::postream *sout); 
  void join();
+ void interupt();
  
  void processQueue(boost::process::postream *sout);
  

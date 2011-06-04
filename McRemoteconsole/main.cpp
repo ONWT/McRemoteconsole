@@ -22,6 +22,7 @@
 #include <vector>
 
 #include "inputhandler.h"
+#include "ouputhandler.h"
 
 namespace bp = ::boost::process; 
 namespace ba = ::boost::asio; 
@@ -32,21 +33,23 @@ ba::io_service io_service;
 boost::array<char, 4096> buffer; 
 
 #if defined(BOOST_POSIX_API) 
-ba::posix::stream_descriptor in(io_service); 
+ba::posix::stream_descriptor in(io_service);
+ba::posix::stream_descriptor out(io_service);
 #elif defined(BOOST_WINDOWS_API) 
 ba::windows::stream_handle in(io_service); 
+ba::windows::stream_handle out(io_service);
 #else 
 #  error "Unsupported platform." 
 #endif 
 
-bp::child start_child() 
+bp::child start_child(char* argv[]) 
 { 
  std::string exec = "/usr/bin/java"; 
  
  std::vector<std::string> args;
  args.push_back("java");
  args.push_back("-jar");
- args.push_back("craftbukkit.jar");
+ args.push_back(argv[1]);
  args.push_back("--nojline");
  
  bp::context ctx;
@@ -72,18 +75,27 @@ void end_read(const boost::system::error_code &ec, std::size_t bytes_transferred
   std::cout << std::string(buffer.data(), bytes_transferred) << std::flush; 
   begin_read(); 
  } 
-} 
+}
 
-int main() 
+int main(int argc, char* argv[]) 
 { 
- bp::child c = start_child(); 
+ bp::child c = start_child(argv); 
  inputhandler::inputhandler *input = new inputhandler();
+ outputhandler::outputhandler *output = new outputhandler();
  
  bp::pistream &is = c.get_stderr();
+ bp::postream &os = c.get_stdin();
  in.assign(is.handle().release()); 
+ out.assign(os.handle().release()); 
+
+ boost::thread t(boost::bind(&boost::asio::io_service::run, &io_service));
  begin_read();
  input->start(&c.get_stdin());
- io_service.run();
- c.wait(); 
+ 
+ //output->start(&c.get_stderr());
  input->join();
+ //output->join();
+ t.join();
+ c.wait();
+ return 0;
 } 
