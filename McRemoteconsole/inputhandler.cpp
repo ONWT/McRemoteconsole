@@ -31,22 +31,4 @@ void inputhandler::interupt()
 
 void inputhandler::processQueue(boost::process::postream *sout)
 {
- std::string Line;
- while(!quit)
- {
-  std::getline(std::cin,Line);
-  if(Line=="/quit")
-  {
-   quit=true;
-   *sout<<"stop" << std::endl;
-  }else if(Line=="stop")
-  {
-   quit=true;
-   *sout<<Line << std::endl;
-   return;
-  }else
-  {
-   *sout<<Line << std::endl;
-  }
- }
 }

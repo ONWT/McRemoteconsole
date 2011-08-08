@@ -13,6 +13,7 @@
 		554CDB9913957F3B00DA8E0C /* libboost_system-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CDB9813957F3B00DA8E0C /* libboost_system-mt.dylib */; };
 		554CDBA31397832000DA8E0C /* inputhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 554CDBA21397832000DA8E0C /* inputhandler.cpp */; };
 		554CDBA6139783ED00DA8E0C /* libboost_thread-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CDBA5139783ED00DA8E0C /* libboost_thread-mt.dylib */; };
+		5552F53213A6371D004AFB90 /* Warpper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5552F53113A6371D004AFB90 /* Warpper.cpp */; };
 		55A97CB4139978D000957592 /* ouputhandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55A97CB3139978D000957592 /* ouputhandler.cpp */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		554CDBA21397832000DA8E0C /* inputhandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inputhandler.cpp; sourceTree = "<group>"; };
 		554CDBA41397836A00DA8E0C /* inputhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputhandler.h; sourceTree = "<group>"; };
 		554CDBA5139783ED00DA8E0C /* libboost_thread-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_thread-mt.dylib"; path = "usr/local/lib/libboost_thread-mt.dylib"; sourceTree = SDKROOT; };
+		5552F53113A6371D004AFB90 /* Warpper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Warpper.cpp; sourceTree = "<group>"; };
 		55A97CB1139978C300957592 /* ouputhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ouputhandler.h; sourceTree = "<group>"; };
 		55A97CB3139978D000957592 /* ouputhandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ouputhandler.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 				554CDBA41397836A00DA8E0C /* inputhandler.h */,
 				55A97CB1139978C300957592 /* ouputhandler.h */,
 				55A97CB3139978D000957592 /* ouputhandler.cpp */,
+				5552F53113A6371D004AFB90 /* Warpper.cpp */,
 			);
 			path = McRemoteconsole;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 				551139831394CACD00BE376B /* main.cpp in Sources */,
 				554CDBA31397832000DA8E0C /* inputhandler.cpp in Sources */,
 				55A97CB4139978D000957592 /* ouputhandler.cpp in Sources */,
+				5552F53213A6371D004AFB90 /* Warpper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

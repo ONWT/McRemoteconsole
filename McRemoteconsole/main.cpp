@@ -86,13 +86,27 @@ int main(int argc, char* argv[])
  bp::pistream &is = c.get_stderr();
  bp::postream &os = c.get_stdin();
  in.assign(is.handle().release()); 
- out.assign(os.handle().release()); 
+ //out.assign(os.handle().release()); 
 
  boost::thread t(boost::bind(&boost::asio::io_service::run, &io_service));
  begin_read();
  input->start(&c.get_stdin());
  
  //output->start(&c.get_stderr());
+ std::string Line;
+ while(std::getline(std::cin,Line))
+ {
+  if(Line=="/quit")
+  {
+   os<<"stop" << std::endl;
+  }else if(Line=="stop")
+  {
+   //os<<Line << std::endl;
+  }else
+  {
+   os<<Line << std::endl;
+  }
+ }
  input->join();
  //output->join();
  t.join();
